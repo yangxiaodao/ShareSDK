@@ -18,7 +18,7 @@ object WxShare {
 
     fun initWx(wxID: String) {
         sWx_ID = wxID
-        sWxApi = WXAPIFactory.createWXAPI(ShareSDK.sContext, sWx_ID, false)
+        sWxApi = WXAPIFactory.createWXAPI(ShareSDK.sContext, sWx_ID, true)
         sWxApi!!.registerApp(sWx_ID)
     }
 
