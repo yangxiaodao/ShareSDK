@@ -24,18 +24,13 @@ object ShareSDK {
     var SHARE_RESPONSE_UNINSTALL = 3
     var SHARE_RESPONSE_ERROR = 4
 
-    var sContext: Context? = null
+    internal var sContext: Context? = null
 
     private var sCallback: ShareCallback? = null
 
-    fun setPlatform(context: Context, platform: Map<Int, Map<String, String>>) {
+    fun config(context: Context, configuration: ShareConfiguration) {
         sContext = context
-        //wechat
-        var platformData = platform[SHARE_PLATFORM_WX]
-        platformData?.let {
-            val wxAppID = platformData[PLATFORM_APP_ID]
-            wxAppID?.let { WxShare.initWx(wxAppID) }
-        }
+        configuration.wxID?.let { WxShare.initWx(it) }
     }
 
     fun share(shareEntity: ShareEntity) {

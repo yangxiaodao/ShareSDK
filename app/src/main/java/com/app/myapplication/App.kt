@@ -1,6 +1,7 @@
 package com.app.myapplication
 
 import android.app.Application
+import com.library.share.ShareConfiguration
 import com.library.share.ShareSDK
 
 /**
@@ -10,10 +11,9 @@ class App : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        val platform = mutableMapOf<Int, Map<String, String>>()
-        val platformWx = mutableMapOf<String, String>()
-        platformWx.put(ShareSDK.PLATFORM_APP_ID, "wxd930ea5d5a258f4f")
-        platform.put(ShareSDK.SHARE_PLATFORM_WX, platformWx)
-        ShareSDK.setPlatform(this, platform)
+        val configuration = ShareConfiguration.Builder()
+                .wechat("wxd930ea5d5a258f4f")
+                .build()
+        ShareSDK.config(this, configuration)
     }
 }
