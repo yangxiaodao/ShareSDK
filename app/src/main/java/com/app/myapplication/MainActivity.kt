@@ -53,7 +53,7 @@ class MainActivity : AppCompatActivity(), ShareCallback {
             ShareSDK.share(ShareEntity(
                     null,
                     BitmapFactory.decodeResource(resources, R.drawable.test),
-                    null,null,null,
+                    null, null, null,
                     ShareSDK.SHARE_TYPE_IMAGE,
                     ShareSDK.SHARE_PLATFORM_WX_TIME_LINE
             ))
